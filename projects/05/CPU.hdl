@@ -39,5 +39,36 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
-    // Put your code here:
+    Mux16 (a=instruction, b=aluOut, sel=instruction[15], out=toA); // C 指令时选择 alu 输出
+    Mux (a=true, b=instruction[5], sel=instruction[15], out=selA);
+    ARegister (in=toA, load=selA, out=outA);
+    And (a=instruction[12], b=instruction[15], out=selAorM);
+    Mux16 (a=outA, b=inM, sel=selAorM, out=aOrM);
+    And (a=instruction[4], b=instruction[15], out=selD);
+    DRegister (in=aluOut, load=selD, out=outD);
+
+    And (a=instruction[11], b=instruction[15], out=selZx);
+    And (a=instruction[10], b=instruction[15], out=selNx);
+    And (a=instruction[9], b=instruction[15], out=selZy);
+    And (a=instruction[8], b=instruction[15], out=selNy);
+    And (a=instruction[7], b=instruction[15], out=selF);
+    And (a=instruction[6], b=instruction[15], out=selNo);
+    ALU (x=outD, y=aOrM, zx=selZx, nx=selNx, zy=selZy, ny=selNy, f=selF, 
+         no=selNo, out=aluOut, zr=t1, ng=t2);
+	And (a=instruction[15], b=instruction[3], out=writeM);
+	And16 (a=true, b=aluOut, out=outM);
+
+	And (a=instruction[2], b=instruction[15], out=j1);
+	And (a=instruction[1], b=instruction[15], out=j2);
+	And (a=instruction[0], b=instruction[15], out=j3);
+
+	And (a=j1, b=t2, out=andJ1);
+	And (a=j2, b=t1, out=andJ2);
+	Or (a=t1, b=t2, out=tmp);
+	Not (in=tmp, out=larger);
+	And (a=j3, b=larger, out=andJ3);
+	Or (a=andJ1, b=andJ2, out=orJ12);
+	Or (a=orJ12, b=andJ3, out=jump);
+	PC (in=outA, load=jump, inc=true, reset=reset, out[0..14]=pc);
+	And16 (a=true, b=outA, out[0..14]=addressM);
 }
