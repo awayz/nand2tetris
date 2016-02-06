@@ -37,7 +37,7 @@ public class Parser {
 
             if (!isEmptyLine(tmp)) {
                 process(tmp.trim());
-          //      System.out.println(tmp.trim());
+                System.out.println(tmp.trim());
             } else {
                 if (hasNextCmd()) {
                     advance();
@@ -121,11 +121,11 @@ public class Parser {
         return arg2;
     }
 
-    public static void main(String[] args) {
-        Parser p = new Parser("C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\07\\StackArithmetic\\SimpleAdd\\SimpleAdd.vm");
-        while (p.hasNextCmd()) {
-            p.advance();
-            System.out.println(p.getCmd() + " " + p.getArg1() + " " + p.getArg2());
+    public void close() {
+        try {
+            bufReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

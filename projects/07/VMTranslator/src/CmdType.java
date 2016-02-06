@@ -8,12 +8,12 @@ public enum CmdType {
     C_ARITHMETIC("add sub neg eq gt lt and or not"),
     C_PUSH("push"),
     C_POP("pop"),
-    C_LABEL(""),
-    C_GOTO(""),
-    C_IF(""),
-    C_FUNCTION(""),
+    C_LABEL("label"),
+    C_GOTO("goto"),
+    C_IF("if"),
+    C_FUNCTION("function"),
     C_RETURN("return"),
-    C_CALL("");
+    C_CALL("call");
 
     private String cmd;
 
@@ -21,7 +21,7 @@ public enum CmdType {
         this.cmd = cmd;
     }
 
-    public CmdType getType(String cmd) {
+    public static CmdType getType(String cmd) {
         for (CmdType t : CmdType.values()) {
             if (t.getCmd().contains(cmd)) {
                 return t;
