@@ -17,13 +17,17 @@ public class CodeWriter {
     public CodeWriter(String path) {
         try {
             bufWriter = new BufferedWriter(new FileWriter(path));
-            bufWriter.write("@256\n" +
-                    "D=A\n" +
-                    "@SP\n" +
-                    "M=D\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void init() {
+        // 栈开始于 256
+        write("@256\n" +
+                "D=A\n" +
+                "@SP\n" +
+                "M=D\n");
     }
 
     /**
@@ -44,6 +48,15 @@ public class CodeWriter {
                           "@SP\n" +
                           "M=D\n";
             case "sub":
+                result += "@SP\n" +
+                        "A=M-1\n" +
+                        "D=M\n" +
+                        "A=A-1\n" +
+                        "D=M-D\n" +
+                        "M=D\n" +
+                        "D=A+1\n" +
+                        "@SP\n" +
+                        "M=D\n";
             case "neg":
             case "eq":
             case "gt":

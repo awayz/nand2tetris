@@ -37,7 +37,7 @@ public class Parser {
 
             if (!isEmptyLine(tmp)) {
                 process(tmp.trim());
-                System.out.println(tmp.trim());
+          //      System.out.println(tmp.trim());
             } else {
                 if (hasNextCmd()) {
                     advance();
