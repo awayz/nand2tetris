@@ -7,10 +7,13 @@
 public class VMTranslator {
 
     public static void main(String[] args) {
-        Parser p = new Parser("C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\07\\StackArithmetic\\StackTest\\StackTest.vm");
-        CodeWriter w = new CodeWriter("C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\07\\StackArithmetic\\StackTest\\StackTest.asm");
+        Parser p = new Parser("C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\07\\MemoryAccess\\StaticTest\\StaticTest.vm");
+        CodeWriter w = new CodeWriter("C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\07\\MemoryAccess\\StaticTest\\StaticTest.asm");
         while (p.hasNextCmd()) {
             p.advance();
+            if (!p.isOK()) {
+                break;
+            }
             String cmd = p.getCmd();
             CmdType type = CmdType.getType(cmd);
             if (type != null) {

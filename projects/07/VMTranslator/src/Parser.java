@@ -19,24 +19,29 @@ public class Parser {
     // 第二个参数
     private int arg2;
 
+    private boolean isOK;
+
     public Parser(String path) {
         try {
             bufReader = new BufferedReader(new FileReader(path));
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     /**
      * 读取下一条非空指令，删去注释部分和前后空格，将指令分割
      */
     public void advance() {
+        isOK = false;
         try {
             String tmp = bufReader.readLine();
             tmp = delComment(tmp);
 
             if (!isEmptyLine(tmp)) {
                 process(tmp.trim());
+                isOK = true;
           //      System.out.println(tmp.trim());
             } else {
                 if (hasNextCmd()) {
@@ -127,5 +132,9 @@ public class Parser {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean isOK() {
+        return isOK;
     }
 }
