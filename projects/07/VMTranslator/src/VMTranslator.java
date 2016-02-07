@@ -7,8 +7,8 @@
 public class VMTranslator {
 
     public static void main(String[] args) {
-        Parser p = new Parser("C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\07\\StackArithmetic\\SimpleAdd\\SimpleAdd.vm");
-        CodeWriter w = new CodeWriter("C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\07\\StackArithmetic\\SimpleAdd\\SimpleAdd.asm");
+        Parser p = new Parser("C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\07\\StackArithmetic\\StackTest\\StackTest.vm");
+        CodeWriter w = new CodeWriter("C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\07\\StackArithmetic\\StackTest\\StackTest.asm");
         while (p.hasNextCmd()) {
             p.advance();
             String cmd = p.getCmd();

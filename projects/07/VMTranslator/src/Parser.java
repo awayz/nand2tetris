@@ -76,7 +76,7 @@ public class Parser {
 
     /**
      * 判断字符串是否为空或由空格组成
-     * @param s 带判断字符串
+     * @param s 待判断字符串
      * @return 空 true，否则 false
      */
     private boolean isEmptyLine(String s) {
