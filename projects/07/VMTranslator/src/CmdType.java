@@ -10,7 +10,7 @@ public enum CmdType {
     C_POP("pop"),
     C_LABEL("label"),
     C_GOTO("goto"),
-    C_IF("if"),
+    C_IF("if-goto"),
     C_FUNCTION("function"),
     C_RETURN("return"),
     C_CALL("call");
