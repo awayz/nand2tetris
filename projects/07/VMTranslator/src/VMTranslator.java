@@ -9,14 +9,14 @@ import java.io.File;
 public class VMTranslator {
 
     public static void main(String[] args) {
-        String path = "C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\08\\FunctionCalls\\StaticsTest";
+        String path = "C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\08\\FunctionCalls\\SimpleFunction";
         File root = new File(path);
         File[] files = root.listFiles();
         if (null == files) {
             return;
         }
 
-        CodeWriter w = new CodeWriter(path + "\\StaticsTest.asm");
+        CodeWriter w = new CodeWriter(path + "\\SimpleFunction.asm");
 
         boot(w);
 
@@ -24,7 +24,9 @@ public class VMTranslator {
             if (!isValidFile(file)) {
                 continue;
             }
-            Parser p = new Parser(file.getAbsolutePath());
+            String name = file.getAbsolutePath();
+            Parser p = new Parser(name);
+            w.setFileName(name);
             while (p.hasNextCmd()) {
                 p.advance();
                 if (!p.isOK()) {
@@ -43,7 +45,6 @@ public class VMTranslator {
      */
     private static void boot(CodeWriter w) {
         w.writeToRegister(256, "SP");
-        w.writeToRegister(5, "5");
         w.writeCall("Sys.init", 0);
     }
 

@@ -30,6 +30,9 @@ public class CodeWriter {
     // 将类型转换为寄存器名称
     private static final Map<String, String> SEG_TO_REG;
 
+    // 将数学操作命令转化为表达式
+    private static final Map<String, String> CMD_TO_FORMULA;
+
     static {
         POP = "@SP\n" +
                 "AM=M-1\n";
@@ -56,8 +59,15 @@ public class CodeWriter {
         SEG_TO_REG.put("this", "THIS");
         SEG_TO_REG.put("that", "THAT");
         SEG_TO_REG.put("temp", "R5");
-        SEG_TO_REG.put("pointer0", "THIS");
-        SEG_TO_REG.put("pointer1", "THAT");
+        SEG_TO_REG.put("pointer", "THIS");
+
+        CMD_TO_FORMULA = new HashMap<>();
+        CMD_TO_FORMULA.put("add", "M=D+M\n");
+        CMD_TO_FORMULA.put("neg", "M=M-D\n");
+        CMD_TO_FORMULA.put("and", "M=D&M\n");
+        CMD_TO_FORMULA.put("or", "M=D|M\n");
+        CMD_TO_FORMULA.put("not", "M=!M\n");
+        CMD_TO_FORMULA.put("sub", "M=M-D\n");
     }
 
     private BufferedWriter bufWriter;
@@ -77,10 +87,9 @@ public class CodeWriter {
 
     private void init(String path) {
         count = 0;
-        setFileName(path);
     }
 
-    private void setFileName(String path) {
+    public void setFileName(String path) {
         String[] str = path.split("\\.");
         String[] t = str[0].split("\\\\");
         fileName = t[t.length - 1];
@@ -114,34 +123,11 @@ public class CodeWriter {
                     POP;
         }
 
-        switch (cmd) {
-            case "add":
-                result += "M=D+M\n";
-                break;
-            case "sub":
-                result += "M=M-D\n";
-                break;
-            case "neg":
-                result += "M=-M\n";
-                break;
-            case "eq":
-                result += cmpProcess("EQ");
-                break;
-            case "gt":
-                result += cmpProcess("GT");
-                break;
-            case "lt":
-                result += cmpProcess("LT");
-                break;
-            case "and":
-                result += "M=D&M\n";
-                break;
-            case "or":
-                result += "M=D|M\n";
-                break;
-            case "not":
-                result += "M=!M\n";
-                break;
+        if (cmd.equals("eq") || cmd.equals("gt") || cmd.equals("lt")) {
+            result += cmpProcess(cmd.toUpperCase());
+
+        } else {
+            result += CMD_TO_FORMULA.get(cmd);
         }
 
         result += SP_PLUS;
@@ -188,8 +174,12 @@ public class CodeWriter {
                             "D=M\n";
                     break;
                 case "pointer":
-                    reg = SEG_TO_REG.get("pointer" + idx);
-                    result = "@" + reg + "\n" +
+                case "temp":
+                    result = "@" + idx + "\n" +
+                            "D=A\n";
+
+                    result += "@" + reg + "\n" +
+                            "A=D+A\n" +
                             "D=M\n";
                     break;
                 default:
@@ -215,10 +205,17 @@ public class CodeWriter {
                             "M=D\n";
                     break;
                 case "pointer":
-                    reg = SEG_TO_REG.get("pointer" + idx);
-                    result = POP +
-                            "D=M\n" +
+                case "temp":
+                    result = "@" + idx + "\n" +
+                            "D=A\n" +
                             "@" + reg + "\n" +
+                            "D=D+A\n" +
+                            "@R13\n" +
+                            "M=D\n" +
+                            POP +
+                            "D=M\n" +
+                            "@R13\n" +
+                            "A=M\n" +
                             "M=D\n";
                     break;
                 default:
