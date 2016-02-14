@@ -114,12 +114,9 @@ public class CodeWriter {
      * @param cmd 运算指令
      */
     public void writeArithmetic(String cmd) {
-        String result = "";
-        if (isUnary(cmd)) {
-            result = POP;
-        } else {
-            result = POP +
-                    "D=M\n" +
+        String result = POP;
+        if (!isUnary(cmd)) {
+            result += "D=M\n" +
                     POP;
         }
 
