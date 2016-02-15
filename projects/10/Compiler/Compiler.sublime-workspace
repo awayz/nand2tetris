@@ -1,0 +1,600 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"v",
+				"value"
+			],
+			[
+				"new",
+				"newSet"
+			],
+			[
+				"null",
+				"NULL"
+			],
+			[
+				"pr",
+				"printPassengers"
+			],
+			[
+				"print",
+				"printWheels"
+			],
+			[
+				"p",
+				"passengers"
+			],
+			[
+				"w",
+				"weight"
+			],
+			[
+				"pa",
+				"passengers1"
+			],
+			[
+				"w1",
+				"weight1"
+			],
+			[
+				"wei1",
+				"weight1"
+			],
+			[
+				"wei",
+				"weight"
+			],
+			[
+				"re",
+				"reciprocal"
+			],
+			[
+				"de",
+				"denominator"
+			],
+			[
+				"g",
+				"getArea"
+			],
+			[
+				"get",
+				"getLen"
+			],
+			[
+				"ge",
+				"getX"
+			],
+			[
+				"ios",
+				"ios_base"
+			],
+			[
+				"io",
+				"ios_base"
+			],
+			[
+				"In",
+				"InscribedSquare"
+			],
+			[
+				"I",
+				"InscribedSquare"
+			],
+			[
+				"c",
+				"circle"
+			],
+			[
+				"pri",
+				"printArea"
+			],
+			[
+				"co",
+				"count"
+			],
+			[
+				"s",
+				"swap"
+			],
+			[
+				"epx",
+				"exponent"
+			],
+			[
+				"r",
+				"right"
+			],
+			[
+				"exp",
+				"exponent"
+			],
+			[
+				"ep",
+				"exponent"
+			],
+			[
+				"pro",
+				"promptEnd"
+			],
+			[
+				"b",
+				"bubbleSort"
+			],
+			[
+				"h",
+				"href	Attr"
+			],
+			[
+				"ma",
+				"margin-left"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"n",
+				"num"
+			],
+			[
+				"str",
+				"strToFind"
+			],
+			[
+				"in",
+				"indexOfStr"
+			],
+			[
+				"F",
+				"FACT1"
+			],
+			[
+				"l",
+				"LEQ"
+			],
+			[
+				"isP",
+				"isPrime"
+			],
+			[
+				"is",
+				"isPrime"
+			],
+			[
+				"m",
+				"multi"
+			],
+			[
+				"max",
+				"max"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 45.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"pci",
+				"Project: Edit Project"
+			],
+			[
+				"java",
+				"Set Syntax: Java"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"c",
+				"Set Syntax: C"
+			],
+			[
+				"setC",
+				"Set Syntax: C++"
+			],
+			[
+				"setH",
+				"Set Syntax: HTML"
+			],
+			[
+				"ssc",
+				"Set Syntax: C"
+			]
+		],
+		"width": 549.0
+	},
+	"console":
+	{
+		"height": 603.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ArrayTest/Main.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ArrayTest/MainT.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/Square/SquareGame.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/VMTranslator/src/VMTranslator.java",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/Square/MainT.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/Square/MainOutput.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/Square/SquareT.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/Square/SquareOutput.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/Square/Square.jack",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/Square/SquareGameT.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/Square/SquareGameOutput.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/Square/SquareGame.jack",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/Square/Main.jack",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ExpressionlessSquare/SquareGameOutput.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ExpressionlessSquare/SquareGameT.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ExpressionlessSquare/SquareT.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ExpressionlessSquare/SquareOutput.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ExpressionlessSquare/Square.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ExpressionlessSquare/MainOutput.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ExpressionlessSquare/MainT.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ExpressionlessSquare/Main.xml",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ArrayTest/MainOutput.xml",
+		"/C/Users/jone/AppData/Roaming/Sublime Text 3/Packages/FileDiffs/FileDiffs.sublime-settings",
+		"/C/Users/jone/AppData/Roaming/Sublime Text 3/Packages/User/FileDiffs.sublime-settings",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/Compiler/Compiler.sublime-project",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ExpressionlessSquare/SquareGame.jack",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/Compiler/src/TokenType.java",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/Compiler/src/CompilationEngine.java",
+		"/D/code/Algorithms/algorithms/src/one/Queue.java",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ExpressionlessSquare/Main.jack",
+		"/C/Users/jone/Desktop/nand2tetris/projects/09/Square/Square.jack",
+		"/C/Users/jone/Desktop/nand2tetris/projects/09/Square/Main.jack",
+		"/C/Users/jone/Desktop/nand2tetris/projects/10/ArrayTest/Main.jack",
+		"/C/Users/jone/Desktop/nand2tetris/projects/09/Square/SquareGame.jack",
+		"/C/Users/jone/Desktop/nand2tetris/tools/OS/String.vm",
+		"/C/Users/jone/Desktop/nand2tetris/tools/OS/Keyboard.vm",
+		"/C/Users/jone/Desktop/nand2tetris/tools/OS/Array.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/06/Assembler/src/Assembler.java",
+		"/C/Users/jone/Desktop/nand2tetris/projects/06/Assembler/src/Code.java",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/SimpleFunction/SimpleFunction.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/SimpleFunction/SimpleFunction.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/NestedCall/NestedCall.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/NestedCall/Sys.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/NestedCall/NestedCall.tst",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/NestedCall/NestedCall.cmp",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/StaticsTest/Class1.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/StaticsTest/Class2.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/StaticsTest/Sys.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/StaticsTest/StaticsTest.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/NestedCall/NestedCallVME.tst",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/StaticsTest/StaticsTest.tst",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/FibonacciElement/Sys.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/FibonacciElement/Main.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/FibonacciElement/FibonacciElement.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/FibonacciElement/Fibonacci.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/FunctionCalls/FibonacciElement/FibonacciElementVME.tst",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/ProgramFlow/BasicLoop/BasicLoop.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/ProgramFlow/FibonacciSeries/FibonacciSeries.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/ProgramFlow/FibonacciSeries/FibonacciSeries.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/ProgramFlow/FibonacciSeries/FibonacciSeries.cmp",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/ProgramFlow/BasicLoop/BasicLoop.out",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/08/ProgramFlow/BasicLoop/BasicLoop.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/MemoryAccess/BasicTest/BasicTest.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/MemoryAccess/PointerTest/PointerTest.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/MemoryAccess/PointerTest/PointerTest.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/MemoryAccess/PointerTest/PointerTest.tst",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/MemoryAccess/PointerTest/PointerTest.cmp",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/MemoryAccess/BasicTest/BasicTest.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.tst",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.vm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/02/ALU.hdl",
+		"/C/Users/jone/Desktop/output",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.cmp",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAddVME.tst",
+		"/C/Users/jone/Desktop/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.tst",
+		"/C/Users/jone/Desktop/nand2tetris/projects/06/Assembler/src/Parser.java",
+		"/C/Users/jone/Desktop/nand2tetris/projects/06/add/Add.hack",
+		"/C/Users/jone/Desktop/nand2tetris/projects/06/add/Add.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/06/max/Max.asm",
+		"/C/Users/jone/Desktop/nand2tetris/projects/06/max/Max.hack",
+		"/C/Users/jone/Desktop/nand2tetris/projects/05/CPU.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/projects/03/a/PC.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/projects/05/Memory.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/projects/05/Computer.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/README.md",
+		"/C/Users/jone/Desktop/nand2tetris/tools/builtInChips/ROM32K.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/05/Memory.tst",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/03/b/RAM16K.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/05/Memory.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/05/CPU.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/tools/builtInChips/Screen.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/tools/builtInChips/Keyboard.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/05/Screen.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/01/DMux4Way.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/05/Keyboard.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/01/DMux.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/05/Add.hack",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/04/mult/Mult.asm",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/04/fill/Fill.asm",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/05/Computer.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/04/mult/Mult.tst",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/03/a/Bit.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/03/a/PC.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/03/a/RAM8.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/03/a/RAM64.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/03/b/RAM512.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/03/b/RAM4K.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/03/a/Register.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/01/Mux8Way16.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/01/DMux8Way.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/02/Inc16.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/02/Add16.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/02/ALU.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/02/FullAdder.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/02/HalfAdder.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/01/Or8Way.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/01/Or16Way.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/01/Mux.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/01/Or16.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/01/And16.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/01/Not16.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/projects/01/Mux16.hdl",
+		"/C/Users/jone/Desktop/nand2tetris/nand2tetris/tools/builtInChips/Mux.hdl"
+	],
+	"find":
+	{
+		"height": 48.0
+	},
+	"find_in_files":
+	{
+		"height": 171.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"IF_FALSE",
+			"IF_TRUE",
+			"@IF_TRUE",
+			"(END4)",
+			"(LT3)",
+			"Sys.init",
+			"a=false, b=instruction",
+			"Mux",
+			"6..8",
+			"64",
+			"0..5",
+			"6..8",
+			"    \n",
+			"and",
+			"And",
+			"and",
+			"        \n",
+			"<< ",
+			"int",
+			"long",
+			"int",
+			"			\n",
+			"getArea",
+			"int",
+			"menuItemMap",
+			"HEAD",
+			";\n",
+			"key",
+			"tool",
+			"persco",
+			"studnet.id",
+			"student.number",
+			"number",
+			"arrange",
+			"liulan",
+			"Arr",
+			"Idx",
+			"Index",
+			"temp",
+			");\n",
+			"();\n",
+			"min",
+			"\");\n",
+			"selectSort",
+			"arrange",
+			"find",
+			"arrange",
+			"selectionSort",
+			"find",
+			"del",
+			"input",
+			"            \n",
+			"seattle_med",
+			"photos",
+			"<>\n",
+			"    	\n",
+			"    \n",
+			"abs",
+			">\n",
+			"				\n",
+			"  \n",
+			"pos",
+			"b",
+			" =",
+			"i",
+			"x",
+			"g",
+			"x",
+			"FACT2",
+			"x",
+			"g",
+			"f",
+			"\\p.p \\m.\\n.m",
+			"n",
+			"x",
+			"m",
+			"a",
+			"m",
+			"f",
+			"\\x.\\m.\\n.m",
+			"CONS",
+			"f",
+			"x",
+			"int",
+			");\n",
+			"MAXN",
+			"maxPrimeNum",
+			"<",
+			"27",
+			"5",
+			"27",
+			"5",
+			"])\n",
+			"num",
+			"char"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 48.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/CPP.sublime-build",
+	"project": "Compiler.sublime-project",
+	"replace":
+	{
+		"height": 92.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 73.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"main"
+			]
+		],
+		"width": 490.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 245.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
