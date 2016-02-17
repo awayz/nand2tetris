@@ -41,10 +41,17 @@ public class JackTokenizer {
         SPECIAL_SYMBOL_MAP.put("&", "&amp;");
     }
 
+    public class Token {
+        public String token;
+        public TokenType type;
 
-    private List<String> tokens;
+        public Token(String token, TokenType type) {
+            this.token = token;
+            this.type = type;
+        }
+    }
 
-    private List<TokenType> types;
+    private List<Token> tokens;
 
     public JackTokenizer(String path) {
         process(delComment(path));
@@ -56,7 +63,6 @@ public class JackTokenizer {
      */
     private void process(List<String> strList) {
         tokens = new ArrayList<>();
-        types = new ArrayList<>();
         String token;
 
         for (String str : strList) {
@@ -72,7 +78,7 @@ public class JackTokenizer {
                     }
 
                     token = str.substring(i+1, j);
-                    types.add(TokenType.STRING_CONSTANT);
+                    tokens.add(new Token(token, TokenType.STRING_CONSTANT));
                     i = j;
                 }
                 else if (isIdentifierStart(c)) { // identifier
@@ -84,9 +90,9 @@ public class JackTokenizer {
 
                     token = str.substring(i, j);
                     if (isKeyword(token)) {
-                        types.add(TokenType.KEYWORD);
+                        tokens.add(new Token(token, TokenType.KEYWORD));
                     } else {
-                        types.add(TokenType.IDENTIFIER);
+                        tokens.add(new Token(token, TokenType.IDENTIFIER));
                     }
 
                     i = j - 1;
@@ -98,7 +104,7 @@ public class JackTokenizer {
                         }
                     }
                     token = str.substring(i, j);
-                    types.add(TokenType.INTEGER_CONSTANT);
+                    tokens.add(new Token(token, TokenType.INTEGER_CONSTANT));
                     i = j - 1;
                 }
                 else if (isSymbol(c)) { // symbol
@@ -106,13 +112,8 @@ public class JackTokenizer {
                     if (SPECIAL_SYMBOL_MAP.containsKey(token)) {
                         token = SPECIAL_SYMBOL_MAP.get(token);
                     }
-                    types.add(TokenType.SYMBOL);
+                    tokens.add(new Token(token, TokenType.SYMBOL));
                 }
-                else {
-                    continue;
-                }
-
-                tokens.add(token);
             }
         }
     }
@@ -163,11 +164,7 @@ public class JackTokenizer {
         return list;
     }
 
-    public List<String> getTokens() {
+    public List<Token> getTokens() {
         return tokens;
-    }
-
-    public List<TokenType> getTypes() {
-        return types;
     }
 }
