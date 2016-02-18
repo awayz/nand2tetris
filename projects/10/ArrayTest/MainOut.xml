@@ -1,20 +1,101 @@
 <class>
- <keyword> class </keyword>
- <identifier> Main </identifier>
- <symbol> { </symbol>
- <subroutineDec>
-  <keyword> function </keyword>
-  <keyword> void </keyword>
-  <identifier> main </identifier>
-  <symbol> ( </symbol>
-  <parameterList>
-  </parameterList>
-  <symbol> ) </symbol>
-  <subroutineBody>
-   <symbol> { </symbol>
-   <statements>
-   </statements>
-   <symbol> } </symbol>
-  </subroutineBody>
- </subroutineDec>
+  <keyword> class </keyword>
+  <identifier> Main </identifier>
+  <symbol> { </symbol>
+  <subroutineDec>
+    <keyword> function </keyword>
+    <keyword> void </keyword>
+    <identifier> main </identifier>
+    <symbol> ( </symbol>
+    <parameterList>
+    </parameterList>
+    <symbol> ) </symbol>
+    <subroutineBody>
+      <symbol> { </symbol>
+      <varDec>
+        <keyword> var </keyword>
+        <identifier> Array </identifier>
+        <identifier> a </identifier>
+        <symbol> ; </symbol>
+      </varDec>
+      <varDec>
+        <keyword> var </keyword>
+        <keyword> int </keyword>
+        <identifier> length </identifier>
+        <symbol> ; </symbol>
+      </varDec>
+      <varDec>
+        <keyword> var </keyword>
+        <keyword> int </keyword>
+        <identifier> i </identifier>
+        <symbol> , </symbol>
+        <identifier> sum </identifier>
+        <symbol> ; </symbol>
+      </varDec>
+      <statements>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> length </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <keyword> let </keyword>
+            <identifier> Keyboard </identifier>
+            <symbol> . </symbol>
+            <identifier> readInt </identifier>
+            <symbol> ( </symbol>
+            <stringConstant> HOW MANY NUMBERS?  </stringConstant>
+            <symbol> ) </symbol>
+            <symbol> ; </symbol>
+          </expression>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> a </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <keyword> let </keyword>
+            <identifier> Array </identifier>
+            <symbol> . </symbol>
+            <identifier> new </identifier>
+            <symbol> ( </symbol>
+            <identifier> length </identifier>
+            <symbol> ) </symbol>
+            <symbol> ; </symbol>
+          </expression>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> i </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <keyword> let </keyword>
+            <integerConstant> 0 </integerConstant>
+            <symbol> ; </symbol>
+          </expression>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> i </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <keyword> let </keyword>
+            <integerConstant> 0 </integerConstant>
+            <symbol> ; </symbol>
+          </expression>
+        </letStatement>
+        <letStatement>
+          <keyword> let </keyword>
+          <identifier> sum </identifier>
+          <symbol> = </symbol>
+          <expression>
+            <keyword> let </keyword>
+            <integerConstant> 0 </integerConstant>
+            <symbol> ; </symbol>
+          </expression>
+        </letStatement>
+      </statements>
+      <symbol> } </symbol>
+    </subroutineBody>
+  </subroutineDec>
+  <symbol> } </symbol>
 </class>

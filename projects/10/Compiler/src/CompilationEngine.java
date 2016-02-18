@@ -11,12 +11,17 @@ import java.util.Iterator;
 
 public class CompilationEngine {
 
+    private static final String OP = "+, -, *, /, &, |, &lt;, &gt;, &amp";
+
     private BufferedWriter writer;
 
     // 缩进
     private int space;
 
     private Iterator<JackTokenizer.Token> tokens;
+
+    // 正在处理的 token
+    private JackTokenizer.Token token;
 
     public CompilationEngine(Iterator<JackTokenizer.Token> tokens, String path) {
         try {
@@ -37,15 +42,15 @@ public class CompilationEngine {
         markStart(name);
 
         while (tokens.hasNext()) {
-            JackTokenizer.Token token = tokens.next();
+            token = tokens.next();
             switch (token.token) {
                 case "field":
-                    compileClassVarDec(token);
+                    compileClassVarDec();
                     break;
                 case "constructor":
                 case "method":
                 case "function":
-                    compileSubroutine(token);
+                    compileSubroutine();
                     break;
                 default:
                     output(token);
@@ -59,18 +64,18 @@ public class CompilationEngine {
     /**
      * 处理成员变量
      */
-    private void compileClassVarDec(JackTokenizer.Token t) {
+    private void compileClassVarDec() {
         String name = "classVarDec";
         markStart(name);
 
-        output(t);
-
         while (tokens.hasNext()) {
-            JackTokenizer.Token token = tokens.next();
-            output(t);
+            output(token);
+
             if (token.token.equals(";")) {
                 break;
             }
+
+            token = tokens.next();
         }
         markEnd(name);
     }
@@ -78,18 +83,32 @@ public class CompilationEngine {
     /**
      * 处理函数
      */
-    private void compileSubroutine(JackTokenizer.Token t) {
+    private void compileSubroutine() {
         String name = "subroutineDec";
         String n = "subroutineBody";
         markStart(name);
 
-        output(t);              // 函数类型
+        output(token);          // 函数类型
         output(tokens.next());  // 返回类型
         output(tokens.next());  // 函数名
         compileParameterList(); // 处理参数
-        markStart(n);           // sub..Body
+        markStart(n);           // <sub..Body>
+        output(tokens.next());  // {
+
+        while (tokens.hasNext()) {
+            token = tokens.next();
+
+            if (token.token.equals("var")) {
+                compileVarDec();
+            } else {
+                break;
+            }
+        }
+
         compileStatements();
-        markEnd(n);             // /sub..Body
+
+        output(token);          // }
+        markEnd(n);             // </sub..Body>
         markEnd(name);
     }
 
@@ -98,7 +117,6 @@ public class CompilationEngine {
 
         String name = "parameterList";
         markStart(name);
-        JackTokenizer.Token token = null;
 
         while (tokens.hasNext()) {
             token = tokens.next();
@@ -114,20 +132,31 @@ public class CompilationEngine {
         output(token);   // )
     }
 
+    /**
+     * 局部变量
+     */
     private void compileVarDec() {
+        String name = "varDec";
+        markStart(name);
 
+        while (tokens.hasNext()) {
+            output(token);
+
+            if (token.token.equals(";")) {
+                break;
+            }
+
+            token = tokens.next();
+        }
+
+        markEnd(name);
     }
 
     private void compileStatements() {
-        output(tokens.next()); // {
-
         String name = "statements";
         markStart(name);
-        JackTokenizer.Token token = null;
 
         while (tokens.hasNext()) {
-            token = tokens.next();
-
             switch (token.token) {
                 case "new":
                     compileParameterList();
@@ -150,13 +179,16 @@ public class CompilationEngine {
                 case "return":
                     compileReturn();
                     break;
-                case "}":
-                    break;
             }
+
+            if (token.token.equals("}")) {
+                break;
+            }
+
+            token = tokens.next();
         }
 
         markEnd(name);
-        output(token); // }
     }
 
     private void compileDo() {
@@ -164,7 +196,15 @@ public class CompilationEngine {
     }
 
     private void compileLet() {
+        String name = "letStatement";
+        markStart(name);
 
+        output(token); // let
+        output(tokens.next()); // xxx
+        output(tokens.next()); // =
+        compileExpression();
+
+        markEnd(name);
     }
 
     private void compileWhile() {
@@ -179,12 +219,40 @@ public class CompilationEngine {
 
     }
 
+    /**
+     * term (op term)*
+     */
     private void compileExpression() {
+        String name = "expression";
+        markStart(name);
 
+        while (tokens.hasNext()) {
+            compileTerm(); // term 遇到 op 或 ; 结束
+
+            output(token); // 输出 op 或 ;
+
+            if (token.token.equals(";")) {
+                break;
+            }
+        }
+
+        markEnd(name);
+    }
+
+    private boolean isOP(String s) {
+        return OP.contains(s);
     }
 
     private void compileTerm() {
+        String name = "term";
+        markStart(name);
 
+        while (tokens.hasNext()) {
+
+
+        }
+
+        markEnd(name);
     }
 
     private void compileExpressionList() {
@@ -193,11 +261,11 @@ public class CompilationEngine {
 
     private void markStart(String name) {
         write("<" + name + ">");
-        space++;
+        space += 2;
     }
 
     private void markEnd(String name) {
-        space--;
+        space -= 2;
         write("</" + name + ">");
     }
 
