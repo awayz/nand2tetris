@@ -6,7 +6,7 @@
 public class JackAnalyzer {
 
     public static void main(String[] args) {
-        String path = "C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\10\\ArrayTest";
+        String path = "C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\10\\Square";
 
         JackTokenizer jackTokenizer = new JackTokenizer(path + "\\Main.jack");
         CompilationEngine compilationEngine = new CompilationEngine(

@@ -11,7 +11,7 @@ import java.util.Iterator;
 
 public class CompilationEngine {
 
-    private static final String OP = "+, -, *, /, &, |, &lt;, &gt;, &amp";
+    private static final String[] OP = { "+", "-", "*", "/", "&", "|", "&lt;", "&gt;", "&amp;", "=" };
 
     private BufferedWriter writer;
 
@@ -156,6 +156,7 @@ public class CompilationEngine {
         String name = "statements";
         markStart(name);
 
+        label:
         while (tokens.hasNext()) {
             switch (token.token) {
                 case "new":
@@ -179,10 +180,8 @@ public class CompilationEngine {
                 case "return":
                     compileReturn();
                     break;
-            }
-
-            if (token.token.equals("}")) {
-                break;
+                case "}":
+                    break label;
             }
 
             token = tokens.next();
@@ -191,8 +190,27 @@ public class CompilationEngine {
         markEnd(name);
     }
 
+    /**
+     * do func() || do xxx.func()
+     */
     private void compileDo() {
+        String name = "doStatement";
+        markStart(name);
 
+        while (tokens.hasNext()) {
+            if (token.token.equals("(")) {
+                output(token); // (
+                compileExpressionList();
+                output(token); // )
+                output(tokens.next()); // ;
+                break;
+            } else {
+                output(token);
+                token = tokens.next();
+            }
+        }
+
+        markEnd(name);
     }
 
     private void compileLet() {
@@ -201,37 +219,92 @@ public class CompilationEngine {
 
         output(token); // let
         output(tokens.next()); // xxx
-        output(tokens.next()); // =
+        token = tokens.next();
+
+        if (token.token.equals("[")) { // [ expression ]
+            output(token);      // [
+            compileExpression();
+            output(token);      // ]
+            output(tokens.next()); // =
+        } else {
+            output(token); // =
+        }
+
         compileExpression();
+        output(token); // ;
 
         markEnd(name);
     }
 
     private void compileWhile() {
+        String name = "whileStatement";
+        markStart(name);
 
+        output(token);          // if
+        output(tokens.next());  // (
+        compileExpression();
+        output(token);          // )
+
+        output(tokens.next());  // {
+        token = tokens.next();  // token = statement
+        compileStatements();
+        output(token);          // }
+
+        markEnd(name);
     }
 
     private void compileIf() {
+        String name = "ifStatement";
+        markStart(name);
 
+        output(token);          // while
+        output(tokens.next());  // (
+        compileExpression();
+        output(token);          // )
+
+        output(tokens.next());  // {
+        token = tokens.next();  // token = statement
+        compileStatements();
+        output(token);          // }
+
+        markEnd(name);
     }
 
     private void compileReturn() {
+        String name = "returnStatement";
+        markStart(name);
 
+        output(token); // return
+        compileExpression();
+        output(token);
+
+        markEnd(name);
     }
 
     /**
      * term (op term)*
+     * compileExpressionList 会调用，
+     * compileExpressionList 调用时需要判断参数是否为空
+     *
+     * return 会调用
+     * return 调用时需要判断表达式是否为空
      */
     private void compileExpression() {
+        token = tokens.next();
+        if (token.token.equals(")") || token.token.equals(";")) {
+            return;
+        }
+
         String name = "expression";
         markStart(name);
 
         while (tokens.hasNext()) {
-            compileTerm(); // term 遇到 op 或 ; 结束
+            compileTerm(); // term 遇到 op ; ) ] , 结束
 
-            output(token); // 输出 op 或 ;
-
-            if (token.token.equals(";")) {
+            if (isOP(token.token)) { // term 遇到 op 结束
+                output(token);
+                token = tokens.next();
+            } else if (isTermEnd(token.token)) {
                 break;
             }
         }
@@ -240,23 +313,76 @@ public class CompilationEngine {
     }
 
     private boolean isOP(String s) {
-        return OP.contains(s);
+        for (String str : OP) {
+            if (str.equals(s)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
+    /**
+     * term 结束时不输出结束符
+     */
     private void compileTerm() {
         String name = "term";
         markStart(name);
 
         while (tokens.hasNext()) {
+            String s = token.token;
 
+            if (s.equals("(") || s.equals("[")) { // ( expression ) [ expression ]
+                output(token); // ( [
+                compileExpression();
+                output(token); // ) ]
+            } else if (isTermEnd(s)) { // term 结束
+                break;
+            } else if (s.equals(".")) {  // 即将进入函数
+                output(token);           // .
+                output(tokens.next());   // 函数名
+                output(tokens.next());   // (
+                compileExpressionList();
+                output(token);           // )
+            } else if (s.equals("~")) {
+                output(token);
+                token = tokens.next();
+                compileTerm();
+                break;
+            }
+            else {
+                output(token);
+            }
 
+            token = tokens.next();
         }
 
         markEnd(name);
     }
 
-    private void compileExpressionList() {
+    private boolean isTermEnd(String s) {
+        return isOP(s) || s.equals(")") || s.equals("]") || s.equals(";") || s.equals(",");
+    }
 
+    private void compileExpressionList() {
+        String name = "expressionList";
+        markStart(name);
+
+        label:
+        while (tokens.hasNext()) {
+            compileExpression();
+
+            switch (token.token) {
+                case ",":               // expression 结束
+                    output(token);
+                    break;
+                case ")":               // list 结束
+                    break label;
+            }
+
+        }
+
+        markEnd(name);
     }
 
     private void markStart(String name) {
