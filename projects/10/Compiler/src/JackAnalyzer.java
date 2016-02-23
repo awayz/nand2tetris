@@ -9,7 +9,8 @@ public class JackAnalyzer {
         String path = "C:\\Users\\jone\\Desktop\\nand2tetris\\projects\\10\\Square";
 
         JackTokenizer jackTokenizer = new JackTokenizer(path + "\\Main.jack");
-        CompilationEngine compilationEngine = new CompilationEngine(
-                jackTokenizer.getTokens().iterator(), path + "\\MainOut.xml");
+        VMWriter vmWriter = new VMWriter(path + "\\MainOut.vm");
+        CompilationEngine compilationEngine =
+                new CompilationEngine(jackTokenizer.getTokens().iterator(), vmWriter);
     }
 }

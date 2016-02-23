@@ -1,6 +1,3 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Iterator;
 
 /**
@@ -11,30 +8,22 @@ import java.util.Iterator;
 
 public class CompilationEngine {
 
-    private static final String[] OP = { "+", "-", "*", "/", "&", "|", "&lt;", "&gt;", "&amp;", "=" };
-
-    private BufferedWriter writer;
+    private static final String[] OP = { "+", "-", "*", "/", "&", "|", "<", ">", "=" };
 
     // 缩进
     private int space;
 
     private Iterator<JackTokenizer.Token> tokens;
 
+    private VMWriter vmWriter;
+
     // 正在处理的 token
     private JackTokenizer.Token token;
 
-    public CompilationEngine(Iterator<JackTokenizer.Token> tokens, String path) {
-        try {
-            writer = new BufferedWriter(new FileWriter(path));
-            this.tokens = tokens;
-
-            compileClass();
-
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    public CompilationEngine(Iterator<JackTokenizer.Token> tokens, VMWriter writer) {
+        this.tokens = tokens;
+        this.vmWriter = writer;
+        compileClass();
     }
 
     private void compileClass() {
@@ -54,7 +43,6 @@ public class CompilationEngine {
                     break;
                 default:
                     output(token);
-                    break;
             }
         }
 
@@ -405,16 +393,11 @@ public class CompilationEngine {
     }
 
     private void write(String s) {
-        try {
-            writer.write(getSpace() + s + "\n");
-            System.out.print(getSpace() + s + "\n");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        vmWriter.write(getSpace() + s + "\n");
+        System.out.print(getSpace() + s + "\n");
     }
 
     private void output(JackTokenizer.Token token) {
         write("<" + token.type + "> " + token.token + " </" + token.type + ">");
     }
-
 }

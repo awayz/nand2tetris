@@ -20,12 +20,9 @@ public class JackTokenizer {
 
     public static final Map<String, String> SYMBOL_MAP;
 
-    public static final Map<String, String> SPECIAL_SYMBOL_MAP;
-
     static {
         KEYWORD_MAP = new HashMap<>();
         SYMBOL_MAP = new HashMap<>();
-        SPECIAL_SYMBOL_MAP = new HashMap<>();
 
         for (String s : KEYWORDS) {
             KEYWORD_MAP.put(s, "keyword");
@@ -35,10 +32,6 @@ public class JackTokenizer {
             SYMBOL_MAP.put(s, "symbol");
         }
 
-        SPECIAL_SYMBOL_MAP.put("<", "&lt;");
-        SPECIAL_SYMBOL_MAP.put(">", "&gt;");
-        SPECIAL_SYMBOL_MAP.put("\"", "&quot;");
-        SPECIAL_SYMBOL_MAP.put("&", "&amp;");
     }
 
     public class Token {
@@ -109,9 +102,6 @@ public class JackTokenizer {
                 }
                 else if (isSymbol(c)) { // symbol
                     token = c + "";
-                    if (SPECIAL_SYMBOL_MAP.containsKey(token)) {
-                        token = SPECIAL_SYMBOL_MAP.get(token);
-                    }
                     tokens.add(new Token(token, TokenType.SYMBOL));
                 }
             }
